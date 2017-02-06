@@ -1,23 +1,8 @@
-<section class="todoapp">
-  <header class="header">
-    <h1>todos</h1>
-  </header>
-
-  <section class="main">
-    <ul class="todo-list">
-     
-    </ul>
-
-
-  </section>
-</section>
-
-<script> 
-  $(function() {
+$(function() {
     $.get("/tasks").success( function( data ) {
       var htmlString = "";
 
-      $.each(data, function(index, task) {
+      $.each(data, function(index,  task) {
         var checkedStatus = task.done ? "checked" : "";
         var liElement = '<li><div class="view"><input class="toggle" type="checkbox"' +
         " data-id='" + task.id + "'" +
@@ -42,8 +27,3 @@
           task: {
             done: doneValue
           }
-        })
-       });
-    });
-  });
-</script>
